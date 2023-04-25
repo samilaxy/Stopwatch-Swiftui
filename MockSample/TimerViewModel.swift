@@ -13,7 +13,7 @@ class TimerViewModel: ObservableObject {
     
     @Published var isRunning: Bool = false
     @Published var secondsElapsed = 0.0
-    @Published var totalTime = 1000.0
+    var totalTime = 1000.0
     private var timer: AnyCancellable?
     
     init() {}
