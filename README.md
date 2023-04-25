@@ -12,3 +12,4 @@ The app should have three elements:
 8. Pressing it once more starts the timer again at 0.
 9. There is no way to pause/resume the timer. Only start and stop.
 10. The label of the button should be "Start" when the timer is stopped and "Stop" when it is running.
+![image](https://user-images.githubusercontent.com/59480282/234415542-d8a2933b-6292-424d-afad-7934b7ec7b0b.png)
