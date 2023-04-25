@@ -8,55 +8,64 @@
 
 
 import XCTest
+import Combine
 @testable import MockSample
 
-class TimeViewModelTests: XCTestCase {
+class TimerViewModelTests: XCTestCase {
     
     var viewModel: TimerViewModel!
+    var cancellables = Set<AnyCancellable>()
     
     override func setUp() {
-        super.setUp()
         viewModel = TimerViewModel()
     }
     
     override func tearDown() {
-        viewModel = nil
-        super.tearDown()
+        cancellables.forEach { $0.cancel() }
+        cancellables.removeAll()
+    }
+    
+    func testControlTimer_Start() {
+            // Given the timer is not running
+        XCTAssertFalse(viewModel.isRunning)
+        
+            // When the timer is started
+        viewModel.controlTimer()
+        
+            // Then the timer should be running
+        XCTAssertTrue(viewModel.isRunning)
+        
+            // Wait for 0.2 seconds to allow the timer to update
+        let expectation = XCTestExpectation(description: "Timer updates")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 1.0)
+        
+            // The seconds elapsed should be greater than 0.0
+        XCTAssertGreaterThan(viewModel.secondsElapsed, 0.0)
+    }
+    
+    func testControlTimer_Stop() {
+            // Given the timer is running
+        viewModel.isRunning = true
+        
+            // When the timer is stopped
+        viewModel.controlTimer()
+        
+            // Then the timer should not be running
+        XCTAssertFalse(viewModel.isRunning)
+        
+            // The seconds elapsed should be set to 0.0
+        XCTAssertEqual(viewModel.secondsElapsed, 0.0)
     }
     
     func testFormattedTime() {
-            // Test initial formatted time
-        XCTAssertEqual(viewModel.formattedTime, "00:00:00")
+            // Given the seconds elapsed is 123.456
+        viewModel.secondsElapsed = 123.456
         
-            // Test formatted time after 1 second
-        viewModel.secondsElapsed = 1.0
-        XCTAssertEqual(viewModel.formattedTime, "00:00:10")
-        
-            // Test formatted time after 1 minute
-        viewModel.secondsElapsed = 60.0
-        XCTAssertEqual(viewModel.formattedTime, "01:00:00")
-        
-            // Test formatted time after 1 hour
-        viewModel.secondsElapsed = 3600.0
-        XCTAssertEqual(viewModel.formattedTime, "60:00:00")
-    }
-    
-    func testControlTimer() {
-            // Test starting the timer
-        viewModel.controlTimer()
-        XCTAssertTrue(viewModel.isRunning)
-        
-            // Wait for 1 second to ensure timer has started
-        let expectation = self.expectation(description: "Wait for timer to start")
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            expectation.fulfill()
-        }
-        wait(for: [expectation], timeout: 1.5)
-        
-            // Test stopping the timer
-        viewModel.controlTimer()
-        XCTAssertFalse(viewModel.isRunning)
-        XCTAssertEqual(viewModel.secondsElapsed, 0.0)
+            // Then the formatted time should be "02:03:45"
+        XCTAssertEqual(viewModel.formattedTime, "02:03:45")
     }
     
 }

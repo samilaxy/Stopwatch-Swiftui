@@ -23,7 +23,7 @@ struct ContentView: View {
                         .opacity(0.3)
                         .foregroundColor(.gray)
                     
-                    // not part of requiredment, keep it here for reference
+                        // not part of requiredment, kept it here for reference
                     Circle()
                         .trim(from: 0.0, to: CGFloat(viewModel.secondsElapsed / viewModel.totalTime))
                         .stroke(style: StrokeStyle(lineWidth: 10.0, lineCap: .round, lineJoin: .round))
@@ -33,11 +33,6 @@ struct ContentView: View {
                     Text(viewModel.formattedTime)
                         .font(.largeTitle)
                         .padding()
-                        .onReceive(viewModel.timer) { _ in
-                            if viewModel.isRunning {
-                                viewModel.secondsElapsed += 0.1
-                            }
-                        }
                 }
                 
                 Spacer()
