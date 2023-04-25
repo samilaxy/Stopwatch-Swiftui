@@ -8,7 +8,7 @@
 import Foundation
 
 
-class TimeViewModel: ObservableObject {
+class TimerViewModel: ObservableObject {
     
     @Published var timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
     @Published var isRunning: Bool = false

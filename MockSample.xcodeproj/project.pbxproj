@@ -15,7 +15,7 @@
 		491AFEAF29F81DA100228E72 /* MockSampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491AFEAE29F81DA100228E72 /* MockSampleUITests.swift */; };
 		491AFEB129F81DA100228E72 /* MockSampleUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491AFEB029F81DA100228E72 /* MockSampleUITestsLaunchTests.swift */; };
 		491AFEBE29F8207100228E72 /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491AFEBD29F8207100228E72 /* TimerViewModel.swift */; };
-		491AFEC029F83A7E00228E72 /* StopwatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491AFEBF29F83A7E00228E72 /* StopwatchView.swift */; };
+		491AFEC229F883EB00228E72 /* TimerViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491AFEC129F883EB00228E72 /* TimerViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,7 +47,7 @@
 		491AFEAE29F81DA100228E72 /* MockSampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSampleUITests.swift; sourceTree = "<group>"; };
 		491AFEB029F81DA100228E72 /* MockSampleUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSampleUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		491AFEBD29F8207100228E72 /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
-		491AFEBF29F83A7E00228E72 /* StopwatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchView.swift; sourceTree = "<group>"; };
+		491AFEC129F883EB00228E72 /* TimerViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,7 +100,6 @@
 			children = (
 				491AFE9329F81D9E00228E72 /* MockSampleApp.swift */,
 				491AFE9529F81D9E00228E72 /* ContentView.swift */,
-				491AFEBF29F83A7E00228E72 /* StopwatchView.swift */,
 				491AFE9729F81DA000228E72 /* Assets.xcassets */,
 				491AFE9929F81DA000228E72 /* Preview Content */,
 				491AFEBD29F8207100228E72 /* TimerViewModel.swift */,
@@ -120,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				491AFEA429F81DA100228E72 /* MockSampleTests.swift */,
+				491AFEC129F883EB00228E72 /* TimerViewModelTests.swift */,
 			);
 			path = MockSampleTests;
 			sourceTree = "<group>";
@@ -265,7 +265,6 @@
 			files = (
 				491AFE9629F81D9E00228E72 /* ContentView.swift in Sources */,
 				491AFEBE29F8207100228E72 /* TimerViewModel.swift in Sources */,
-				491AFEC029F83A7E00228E72 /* StopwatchView.swift in Sources */,
 				491AFE9429F81D9E00228E72 /* MockSampleApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -274,6 +273,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				491AFEC229F883EB00228E72 /* TimerViewModelTests.swift in Sources */,
 				491AFEA529F81DA100228E72 /* MockSampleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

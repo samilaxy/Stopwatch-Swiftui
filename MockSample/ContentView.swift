@@ -10,7 +10,7 @@ import Combine
 
 struct ContentView: View {
     
-    @ObservedObject var viewModel = TimeViewModel()
+    @ObservedObject var viewModel = TimerViewModel()
     
     var body: some View {
         NavigationView {
@@ -23,6 +23,7 @@ struct ContentView: View {
                         .opacity(0.3)
                         .foregroundColor(.gray)
                     
+                    // not part of requiredment, keep it here for reference
                     Circle()
                         .trim(from: 0.0, to: CGFloat(viewModel.secondsElapsed / viewModel.totalTime))
                         .stroke(style: StrokeStyle(lineWidth: 10.0, lineCap: .round, lineJoin: .round))

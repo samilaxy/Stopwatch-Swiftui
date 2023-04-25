@@ -12,7 +12,6 @@ struct MockSampleApp: App {
     var body: some Scene {
         WindowGroup {
         ContentView()
-        //StopwatchView()
         }
     }
 }
